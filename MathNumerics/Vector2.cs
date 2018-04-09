@@ -156,35 +156,7 @@ namespace MathNumerics
 
 			return new Vector2(x, y);
 		}
-
-		//
-		// Summary:
-		//     Returns the Euclidean distance squared between two specified points.
-		//
-		// Parameters:
-		//   value1:
-		//     The first point.
-		//
-		//   value2:
-		//     The second point.
-		//
-		// Returns:
-		//     The distance squared.
-		public static float DistanceSquared(Vector2 value1, Vector2 value2);
-		//
-		// Summary:
-		//     Divides the first vector by the second.
-		//
-		// Parameters:
-		//   left:
-		//     The first vector.
-		//
-		//   right:
-		//     The second vector.
-		//
-		// Returns:
-		//     The vector resulting from the division.
-		public static Vector2 Divide(Vector2 left, Vector2 right);
+		
 		//
 		// Summary:
 		//     Divides the specified vector by a specified scalar value.
@@ -198,7 +170,11 @@ namespace MathNumerics
 		//
 		// Returns:
 		//     The vector that results from the division.
-		public static Vector2 Divide(Vector2 left, float divisor);
+		public static Vector2 Divide(Vector2 left, float divisor)
+		{
+			return new Vector2(left.X / divisor, left.Y / divisor);
+		}
+
 		//
 		// Summary:
 		//     Returns the dot product of two vectors.
@@ -212,24 +188,12 @@ namespace MathNumerics
 		//
 		// Returns:
 		//     The dot product.
-		public static float Dot(Vector2 value1, Vector2 value2);
-		//
-		// Summary:
-		//     Performs a linear interpolation between two vectors based on the given weighting.
-		//
-		// Parameters:
-		//   value1:
-		//     The first vector.
-		//
-		//   value2:
-		//     The second vector.
-		//
-		//   amount:
-		//     A value between 0 and 1 that indicates the weight of value2.
-		//
-		// Returns:
-		//     The interpolated vector.
-		public static Vector2 Lerp(Vector2 value1, Vector2 value2, float amount);
+		public static float Dot(Vector2 value1, Vector2 value2)
+		{
+			var res = value1.X * value2.X + value1.Y * value2.Y;
+			return res;
+		}
+		
 		//
 		// Summary:
 		//     Returns a vector whose elements are the maximum of each of the pairs of elements
