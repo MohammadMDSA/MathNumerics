@@ -142,9 +142,9 @@ namespace MathNumerics
 		public static Vector2 Clamp(Vector2 value1, Vector2 min, Vector2 max)
 		{
 			float x = value1.X;
-			if(value1.X < min.X)
+			if (value1.X < min.X)
 				x = min.X;
-			else if(value1.X > max.X)
+			else if (value1.X > max.X)
 				x = max.X;
 
 
@@ -156,7 +156,7 @@ namespace MathNumerics
 
 			return new Vector2(x, y);
 		}
-		
+
 		//
 		// Summary:
 		//     Divides the specified vector by a specified scalar value.
@@ -193,7 +193,7 @@ namespace MathNumerics
 			var res = value1.X * value2.X + value1.Y * value2.Y;
 			return res;
 		}
-		
+
 		//
 		// Summary:
 		//     Returns a vector whose elements are the maximum of each of the pairs of elements
@@ -208,7 +208,13 @@ namespace MathNumerics
 		//
 		// Returns:
 		//     The maximized vector.
-		public static Vector2 Max(Vector2 value1, Vector2 value2);
+		public static Vector2 Max(Vector2 value1, Vector2 value2)
+		{
+			float x = Math.Max(value1.X, value2.X);
+			float y = Math.Max(value1.Y, value2.Y);
+			return new Vector2(x, y);
+		}
+
 		//
 		// Summary:
 		//     Returns a vector whose elements are the minimum of each of the pairs of elements
@@ -223,7 +229,13 @@ namespace MathNumerics
 		//
 		// Returns:
 		//     The minimized vector.
-		public static Vector2 Min(Vector2 value1, Vector2 value2);
+		public static Vector2 Min(Vector2 value1, Vector2 value2)
+		{
+			float x = Math.Min(value1.X, value2.X);
+			float y = Math.Min(value1.Y, value2.Y);
+			return new Vector2(x, y);
+		}
+
 		//
 		// Summary:
 		//     Multiplies a scalar value by a specified vector.
@@ -237,7 +249,11 @@ namespace MathNumerics
 		//
 		// Returns:
 		//     The scaled vector.
-		public static Vector2 Multiply(float left, Vector2 right);
+		public static Vector2 Multiply(float left, Vector2 right)
+		{
+			return new Vector2(right.X * left, right.Y * left);
+		}
+
 		//
 		// Summary:
 		//     Multiplies a vector by a specified scalar.
@@ -251,21 +267,11 @@ namespace MathNumerics
 		//
 		// Returns:
 		//     The scaled vector.
-		public static Vector2 Multiply(Vector2 left, float right);
-		//
-		// Summary:
-		//     Multiplies two vectors together.
-		//
-		// Parameters:
-		//   left:
-		//     The first vector.
-		//
-		//   right:
-		//     The second vector.
-		//
-		// Returns:
-		//     The product vector.
-		public static Vector2 Multiply(Vector2 left, Vector2 right);
+		public static Vector2 Multiply(Vector2 left, float right)
+		{
+			return new Vector2(left.X * right, left.Y * right);
+		}
+		
 		//
 		// Summary:
 		//     Negates a specified vector.
@@ -276,7 +282,11 @@ namespace MathNumerics
 		//
 		// Returns:
 		//     The negated vector.
-		public static Vector2 Negate(Vector2 value);
+		public static Vector2 Negate(Vector2 value)
+		{
+			return new Vector2(-value.X, -value.Y);
+		}
+
 		//
 		// Summary:
 		//     Returns a vector with the same direction as the specified vector, but with a
@@ -288,7 +298,13 @@ namespace MathNumerics
 		//
 		// Returns:
 		//     The normalized vector.
-		public static Vector2 Normalize(Vector2 value);
+		public static Vector2 Normalize(Vector2 value)
+		{
+			var length = value.Length();
+
+			return new Vector2(value.X / length, value.Y / length);
+		}
+
 		//
 		// Summary:
 		//     Returns the reflection of a vector off a surface that has the specified normal.
